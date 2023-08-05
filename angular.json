@@ -33,9 +33,10 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": [
-              
-            ]
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
+            "scripts": []
           },
           "configurations": {
             "production": {
