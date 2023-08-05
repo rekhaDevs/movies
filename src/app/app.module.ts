@@ -3,14 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserLoginComponent } from './pages/user/user-login/user-login/user-login.component';
+import { HttpClientModule} from '@angular/common/http';
+import { MoviesListComponent } from './pages/movies/movies-list/movies-list.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpinLoaderComponent } from './shared/components/spin-loader/spin-loader.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserLoginComponent,
+    MoviesListComponent,
+    SpinLoaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgToastModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
