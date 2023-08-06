@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 import {Router} from '@angular/router';
-import {AuthService} from 'src/app/shared/services/http-services/auth.service';
-import {AlertService} from 'src/app/shared/services/shared-services/alert-service/alert-service.service';
-import {ThemeToggleService} from "../../../../shared/services/theme-toggle.service";
+import {AuthService} from 'src/app/shared/http-services/auth.service';
+import {AlertService} from 'src/app/shared/services/alert-service.service';
+import {ThemeToggleService} from "../../shared/services/theme-toggle.service";
 
 
 @Component({
-  selector: 'app-user-login',
+  selector: 'app-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss']
 })

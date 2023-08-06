@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserLoginComponent } from './pages/user/user-login/user-login/user-login.component';
+import { UserLoginComponent } from './pages/login/user-login.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MoviesListComponent } from './pages/movies/movies-list/movies-list.component';
 import { NgToastModule } from 'ng-angular-popup';
