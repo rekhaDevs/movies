@@ -12,6 +12,8 @@ import { SpinLoaderComponent } from './shared/components/spin-loader/spin-loader
 import {ThemeToggleService} from "./shared/services/theme-toggle.service";
 import {StorageService} from "./shared/services/storage.service";
 import { HeaderComponent } from './main/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,9 @@ import { HeaderComponent } from './main/header/header.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
-
+    NgToastModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule
   ],
   providers: [
     StorageService,
