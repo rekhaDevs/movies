@@ -9,6 +9,8 @@ import { MoviesListComponent } from './pages/movies/movies-list/movies-list.comp
 import { NgToastModule } from 'ng-angular-popup';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinLoaderComponent } from './shared/components/spin-loader/spin-loader.component';
+import {ThemeToggleService} from "./shared/services/theme-toggle.service";
+import {StorageService} from "./shared/services/storage.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { SpinLoaderComponent } from './shared/components/spin-loader/spin-loader
     NgToastModule
 
   ],
-  providers: [],
+  providers: [
+    StorageService,
+    ThemeToggleService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
