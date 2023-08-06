@@ -1,7 +1,11 @@
 import {Injectable} from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class StorageService {
+  constructor() {
+  }
+
   static getItem(key: string) {
     return localStorage.getItem(key) ? JSON.parse(<string>localStorage.getItem(key)) : null;
   }
@@ -17,8 +21,5 @@ export class StorageService {
 
   static clearAll() {
     localStorage.clear();
-  }
-
-  constructor() {
   }
 }

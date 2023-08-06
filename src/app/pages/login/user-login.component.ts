@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/http-services/auth.service';
 import { AlertService } from 'src/app/shared/services/alert-service.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 import { ThemeToggleService } from 'src/app/shared/services/theme-toggle.service';
 
 
@@ -20,11 +21,15 @@ export class UserLoginComponent implements OnInit{
     private AuthService: AuthService,
     private router: Router,
     private alert: AlertService,
-    private themeToggleService: ThemeToggleService
+    private themeToggleService: ThemeToggleService,
+    private storageService: StorageService
   ) {
       }
 
   ngOnInit() {
+    if (StorageService.getItem('accessToken')) {
+      StorageService.setItem('accessToken', StorageService.getItem('accessToken'))
+    }
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
@@ -42,10 +47,9 @@ export class UserLoginComponent implements OnInit{
     }
     this.AuthService.authenticateUser(reqData)
       .subscribe((data) => {
-        if (data) {
+        if (data && data.is_success) {
            this.isSubmitted = false;
-          // this.globalService.setAccessToken(data.token);
-          // this.globalService.setSelf(data.user);
+          StorageService.setItem('accessToken', data.data.token);
           this.router.navigate(['/movies'])
         }     
         },
@@ -57,6 +61,11 @@ export class UserLoginComponent implements OnInit{
           
           console.log(error.error.is_success);
         });
+  }
+  
+  logOut(): void {
+    StorageService.clearAll();
+    this.router.navigateByUrl('login');
   }
 
   toggle() {
