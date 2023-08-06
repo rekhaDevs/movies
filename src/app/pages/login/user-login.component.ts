@@ -62,14 +62,4 @@ export class UserLoginComponent implements OnInit{
           console.log(error.error.is_success);
         });
   }
-  
-  logOut(): void {
-    StorageService.clearAll();
-    this.router.navigateByUrl('login');
-  }
-
-  toggle() {
-    this.themeToggleService.toggleMode();
-  }
-
 }
