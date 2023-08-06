@@ -14,6 +14,7 @@ import {StorageService} from "./shared/services/storage.service";
 import { HeaderComponent } from './main/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     HttpClientModule,
     NgToastModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatPaginatorModule
   ],
   providers: [
     StorageService,
