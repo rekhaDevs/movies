@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms'
-import {Router} from '@angular/router';
-import {AuthService} from 'src/app/shared/http-services/auth.service';
-import {AlertService} from 'src/app/shared/services/alert-service.service';
-import {ThemeToggleService} from "../../shared/services/theme-toggle.service";
+import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms'
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/http-services/auth.service';
+import { AlertService } from 'src/app/shared/services/alert-service.service';
+import { ThemeToggleService } from 'src/app/shared/services/theme-toggle.service';
 
 
 @Component({
@@ -11,9 +11,10 @@ import {ThemeToggleService} from "../../shared/services/theme-toggle.service";
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss']
 })
-export class UserLoginComponent implements OnInit {
+export class UserLoginComponent implements OnInit{
   loginForm: FormGroup | any;
   isSubmitted: boolean = false;
+  isError: boolean= false;
 
   constructor(
     private AuthService: AuthService,
@@ -21,7 +22,7 @@ export class UserLoginComponent implements OnInit {
     private alert: AlertService,
     private themeToggleService: ThemeToggleService
   ) {
-  }
+      }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -29,7 +30,7 @@ export class UserLoginComponent implements OnInit {
       password: new FormControl('', [Validators.required])
     })
   }
-
+  
   onSubmit() {
     this.isSubmitted = true;
     const reqData = {
@@ -41,17 +42,20 @@ export class UserLoginComponent implements OnInit {
     }
     this.AuthService.authenticateUser(reqData)
       .subscribe((data) => {
-          if (data) {
-            this.isSubmitted = false;
-            // this.globalService.setAccessToken(data.token);
-            // this.globalService.setSelf(data.user);
-            this.router.navigate(['/movies'])
-          }
+        if (data) {
+           this.isSubmitted = false;
+          // this.globalService.setAccessToken(data.token);
+          // this.globalService.setSelf(data.user);
+          this.router.navigate(['/movies'])
+        }     
         },
         (error) => {
+          if(!error.error.is_success){
           this.isSubmitted = false;
-          this.alert.popToaster('error', 'Invalid Credentials', error.error.message, {duration: 5000})
-
+            this.isError = true;
+          }
+          
+          console.log(error.error.is_success);
         });
   }
 

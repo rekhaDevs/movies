@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinLoaderComponent } from './shared/components/spin-loader/spin-loader.component';
 import {ThemeToggleService} from "./shared/services/theme-toggle.service";
 import {StorageService} from "./shared/services/storage.service";
+import { HeaderComponent } from './main/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     MoviesListComponent,
-    SpinLoaderComponent
+    SpinLoaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
