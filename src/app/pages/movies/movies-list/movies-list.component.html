@@ -1,24 +1,24 @@
-<div class="container">
+<div>
     <app-header></app-header>  
     <div class="main">
         <div class="hero">
             <div class="hero-content">
               <h1>Movie Title</h1>
               <p class="description">Movie Description</p>
-              <button class="watch-button">Watch Now</button>
+              <button class="watch-button">Play Now</button>
             </div>
           </div>
           
   
       <div class="movie-list">
-        <h2>Watch Now</h2>
+        <h2 class="mx-5 my-2">Watch Now</h2>
         <div class="movie-cards my-2 row d-flex justify-content-center">
             <div class="movie-card my-2" *ngFor="let movie of movieList">
                 <img src="assets/images/8730.jpg" alt="Movie">
                 <h3 class="movie-title">{{movie.title}}</h3>
                 <div class="movie-detail">
                   <div class="movie-info">
-                    <p class="movie-genre">Genres : {{movie.genres ? movie.genres : 'Not Defined'}}</p>
+                    <p class="movie-genre">Genres : {{movie.genres ? movie.genres : 'Misc'}}</p>
                   </div>
                   <div class="additional-details">
                       <p><small>{{movie.description}}</small> </p>
