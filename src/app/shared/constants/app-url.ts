@@ -10,4 +10,8 @@ export class AppUrl {
   static get AUTH(): string {
     return AppUrl.API_URL + 'v1/usermodule/login/';
   }
+
+  static get MOVIES(): string {
+    return AppUrl.API_URL + 'v1/maya/movies/';
+  }
 }
