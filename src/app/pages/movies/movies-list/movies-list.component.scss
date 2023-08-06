@@ -190,3 +190,16 @@
       padding: 10px;
     }
   }
+ 
+  .paginator::ng-deep {
+    .mat-mdc-paginator-page-size {
+      display: none;
+    }
+    .mat-mdc-paginator-range-label {
+      display: none;
+    }
+    .mat-mdc-icon-button{
+      margin: 0.5rem;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  } 

@@ -27,13 +27,14 @@
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-center my-3" *ngIf="isActive">
-          <app-spin-loader></app-spin-loader>
+        
+        <div class="paginator d-flex justify-content-center my-3">
+          <mat-paginator [pageSize]="paginate.pageSize" [pageIndex]="paginate.pageIndex" [length]="paginate.length" (page)="onPageChange($event)">
+          </mat-paginator>
         </div>
-
-        <mat-paginator [pageSize]="paginate.pageSize" [pageIndex]="currentPage"
-          (page)="onPageChange($event)">
-        </mat-paginator>
+      </div>
+      <div class="d-flex justify-content-center my-3" *ngIf="isActive">
+        <app-spin-loader></app-spin-loader>
       </div>
       <ng-template #noDataToShow>
         <div *ngIf="!isActive" class="text-center">
