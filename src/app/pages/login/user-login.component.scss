@@ -61,8 +61,8 @@ input {
   }
 
   button{
-    background-color: #000;
-    color: white;
+    background-color: var(--textColor);
+    color: var(--bgColor);
     width: 100%;
     transition: background-color 0.3s ease;
   }
