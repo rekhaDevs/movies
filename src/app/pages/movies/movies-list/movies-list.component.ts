@@ -26,11 +26,11 @@ export class MoviesListComponent  implements OnInit{
   }
 
   ngOnInit(): void {
-    this.getMovieList(this.paginate.pageIndex +1);
+    this.getMovieList(this.paginate);
   }
 
   getMovieList(params: any){
-    this.movieService.getMovieList(params).subscribe(
+    this.movieService.getMovieList(params.pageIndex + 1).subscribe(
       (data)=>{
         if(data){
           this.movieList = data.results;
@@ -40,13 +40,11 @@ export class MoviesListComponent  implements OnInit{
             pageSize: 10,
             length: data.count,
           };       
-          console.log("this.move", this.paginate.pageIndex, this.movieList);
-            
         }
 
       },
       (error)=>{
-        this.paginate.pageIndex = params;
+        this.paginate.pageIndex = params.previousPageIndex ;
         this.isActive = false;          
         this.alert.popToaster('error', 'Try Again', error?.error?.error?.message, {duration: 5000} )
 
@@ -55,9 +53,8 @@ export class MoviesListComponent  implements OnInit{
   }
 
   onPageChange(event: any) {
-    console.log("hhh",event);
     this.currentPage = event.pageIndex;
-    this.getMovieList(event.pageIndex + 1);
+    this.getMovieList(event);
   }
 
 }

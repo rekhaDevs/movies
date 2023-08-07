@@ -13,43 +13,50 @@
   
   .movie-list {
     margin: 30px 0;
+    .movie-cards{
+      gap: 15px;
+    }
   }
+
+// Bill board Styling
+
   .hero {
     position: relative;
     height: 500px;
     background-image: url("/assets/images/bill.jpg");
     background-size: cover;
     background-position: bottom;
-  }
-  
-  .hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
-    color: #fff;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .description {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .watch-button {
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    background-color: #1f1f1f;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
 
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 20px;
+      color: #fff;
+
+      .description {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+      
+      .watch-button {
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        background-color: #1f1f1f;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+    }
+
+  }
+  
   h2 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -64,36 +71,37 @@
     border-radius: 8px;
     overflow: hidden;
     z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add transition properties */
-  }
-  
-  .movie-card img {
-    width: 100%;
-    height: 70%; /* Adjust the height based on your desired aspect ratio */
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-  }
-  
-.movie-detail{
-  padding: 15px;
-}
+    box-shadow: 4px 4px 4px var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  .movie-title {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #fff;
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  .movie-card .movie-genre {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 6px;
+    img {
+      width: 100%;
+      height: 70%; /* Adjust the height based on your desired aspect ratio */
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .movie-title {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 5px;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    .movie-detail{
+      padding: 15px;
+    }
+
+    .movie-genre {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      word-break: break-all;
+    }
   }
   
   
@@ -119,6 +127,7 @@
       left: 0;
       width: 100%;
       box-sizing: border-box;
+      min-height: 82px;
    
 
     p{

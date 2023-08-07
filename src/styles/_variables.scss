@@ -12,6 +12,7 @@ $borderColor_dark: white;
   --bgColor: #{$bgColor_light};
   --textColor: #{$textColor_light};
   --borderColor: #{$borderColor_light};
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 // mixin that enables css variables in dark mode
@@ -19,4 +20,5 @@ $borderColor_dark: white;
   --bgColor: #{$bgColor_dark};
   --textColor: #{$textColor_dark};
   --borderColor: #{$borderColor_dark};
+  --shadow: rgba(255, 255, 255, 0.1);
 }
