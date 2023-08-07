@@ -1,3 +1,5 @@
+@import "/src/styles/variables";
+
 .container {
     right: 0;
     top: 0;
@@ -52,11 +54,7 @@
     font-size: 24px;
     margin-bottom: 10px;
   }
-  
-  .movie-cards {
-    
-  }
-  
+
 
 /* CSS for movie card */
 .movie-card {
@@ -115,7 +113,7 @@
   .additional-details {
       padding: 10px;
       display: none; /* Hide the details initially */
-      background-color: #fff;
+      background-color: var(--bgColor);
       position: absolute;
       bottom: 0;
       left: 0;
@@ -192,14 +190,24 @@
   }
  
   .paginator::ng-deep {
+    .mat-mdc-paginator{
+      background: var(--bgColor);
+    }
     .mat-mdc-paginator-page-size {
       display: none;
     }
     .mat-mdc-paginator-range-label {
       display: none;
     }
+    .mat-mdc-button-persistent-ripple{
+      border: 1px solid gray;
+    }
     .mat-mdc-icon-button{
+      border: 1 px slategrey;
       margin: 0.5rem;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .mat-mdc-paginator-icon{
+      fill: var(--textColor) !important;
     }
   } 
