@@ -16,6 +16,7 @@ export class UserLoginComponent implements OnInit{
   loginForm: FormGroup | any;
   isSubmitted: boolean = false;
   isError: boolean= false;
+  isLoading: boolean= false;
 
   constructor(
     private AuthService: AuthService,
@@ -47,19 +48,24 @@ export class UserLoginComponent implements OnInit{
     }
     this.AuthService.authenticateUser(reqData)
       .subscribe((data) => {
+        this.isLoading =true;
         if (data && data.is_success) {
            this.isSubmitted = false;
+            this.isLoading =false;
+
           StorageService.setItem('accessToken', data.data.token);
           this.router.navigate(['/movies'])
         }     
         },
         (error) => {
-          if(!error.error.is_success){
+          if(!error.error.is_success){  //basically wrong credentials error but haven't had any other key
+          this.isLoading =false;
           this.isSubmitted = false;
-            this.isError = true;
+          this.isError = true;
           }
-          
-          console.log(error.error.is_success);
+          else{
+            this.alert.popToaster('error', 'Try Again', error?.error?.error?.message, {duration: 5000} )
+          }
         });
   }
 }

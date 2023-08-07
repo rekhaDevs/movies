@@ -1,35 +1,57 @@
 <div>
-    <app-header></app-header>  
-    <div class="main">
-        <div class="hero">
-            <div class="hero-content">
-              <h1>Movie Title</h1>
-              <p class="description">Movie Description</p>
-              <button class="watch-button">Play Now</button>
+  <app-header></app-header>
+  <div class="main">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Movie Title</h1>
+        <p class="description">Movie Description</p>
+        <button class="watch-button">Play Now</button>
+      </div>
+    </div>
+
+
+    <div class="movie-list">
+      <h2 class="mx-5 my-2">Watch Now</h2>
+      <div *ngIf="movieList && movieList.length; else noDataToShow">
+        <div class="movie-cards my-2 row d-flex justify-content-center">
+          <div class="movie-card my-2 mx-1" *ngFor="let movie of movieList">
+            <img src="assets/images/8730.jpg" alt="Movie">
+            <h3 class="movie-title">{{movie.title}}</h3>
+            <div class="movie-detail">
+              <div class="movie-info">
+                <p class="movie-genre">Genres : {{movie.genres ? movie.genres : 'Misc'}}</p>
+              </div>
+              <div class="additional-details ml-2">
+                <p><small>{{movie.description}}</small> </p>
+              </div>
             </div>
           </div>
-          
-  
-      <div class="movie-list">
-        <h2 class="mx-5 my-2">Watch Now</h2>
-        <div class="movie-cards my-2 row d-flex justify-content-center">
-            <div class="movie-card my-2 mx-1" *ngFor="let movie of movieList">
-                <img src="assets/images/8730.jpg" alt="Movie">
-                <h3 class="movie-title">{{movie.title}}</h3>
-                <div class="movie-detail">
-                  <div class="movie-info">
-                    <p class="movie-genre">Genres : {{movie.genres ? movie.genres : 'Misc'}}</p>
-                  </div>
-                  <div class="additional-details">
-                      <p><small>{{movie.description}}</small> </p>
-                    </div>
-                </div>
-              </div>
+        </div>
+        
+        <div class="paginator d-flex justify-content-center my-3">
+          <mat-paginator [pageSize]="paginate.pageSize" [pageIndex]="paginate.pageIndex" [length]="paginate.length" (page)="onPageChange($event)">
+          </mat-paginator>
         </div>
       </div>
-  
+      <div class="d-flex justify-content-center my-3" *ngIf="isActive">
+        <app-spin-loader></app-spin-loader>
+      </div>
+      <ng-template #noDataToShow>
+        <div *ngIf="!isActive" class="text-center">
+          <div class='no-data-found'>
+            <div class='no-data'>
+              <div class="no-data-icon"> <i class='fa fa-exclamation-circle'></i></div>
+              <div class="no-data-title">
+                No Data to Show
+              </div>
+            </div>
+          </div>
 
-  
+        </div>
+      </ng-template>
     </div>
+
+
+
   </div>
-  
+</div>

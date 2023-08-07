@@ -5,14 +5,15 @@
       </div>
       <div class="d-flex justify-content-center align-items-center">
         <div class="mx-2 d-flex flex-column align-items-center">
-          <small>Dark Mode</small>
           <mat-slide-toggle [ngModel]="isDark" (change)="toggleDarkMode()"></mat-slide-toggle>
+          <small>Dark Mode</small>
         </div>
-        <nav class="navigation">
+        <!-- <nav class="navigation">
           <a href="#">Movies</a>
-        </nav>
-        <div class="user-profile">
+        </nav> -->
+        <div class="user-profile justify-content-center">
           <img src="assets/images/tom.jpeg">
+          <button class="logout-button" (click)="logOut()">Logout</button>
         </div>
       </div>
     </div>
